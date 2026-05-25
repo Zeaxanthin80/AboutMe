@@ -10,6 +10,7 @@ See the License.txt file for this sample’s licensing information.
 */
 
 import SwiftUI
+import UIKit
 
 struct ContentView: View {
     enum Tab: Hashable { case home, story, favorites, funfacts }
@@ -21,6 +22,8 @@ struct ContentView: View {
                 .ignoresSafeArea()
 
             TabView(selection: $selection) {
+                // To keep the background fully visible across iOS 16/17, we hide the opaque
+                // materials on the tab bar and ensure the ZStack rendering strategy is used.
                 HomeView()
                     .tag(Tab.home)
                     .tabItem { Label("Home", systemImage: "person") }

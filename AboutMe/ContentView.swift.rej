@@ -1,0 +1,11 @@
+--- ContentView.swift
++++ ContentView.swift
+@@ -10,8 +10,7 @@
+ /*
+ See the License.txt file for this sample’s licensing information.
+ */
+ 
+ import SwiftUI
+-import UIKit
+ 
+ struct ContentView: View {

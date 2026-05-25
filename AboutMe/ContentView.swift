@@ -16,37 +16,35 @@ struct ContentView: View {
     @State private var selection: Tab = .home
 
     var body: some View {
-        ZStack {
+        TabView(selection: $selection) {
+            HomeView()
+                .tag(Tab.home)
+                .tabItem {
+                    Label("Home", systemImage: "person")
+                }
+
+            StoryView()
+                .tag(Tab.story)
+                .tabItem {
+                    Label("Story", systemImage: "book")
+                }
+
+            FavoritesView()
+                .tag(Tab.favorites)
+                .tabItem {
+                    Label("Favorites", systemImage: "star")
+                }
+
+            FunFactsView()
+                .tag(Tab.funfacts)
+                .tabItem {
+                    Label("Fun Facts", systemImage: "hand.thumbsup")
+                }
+        }
+        .background(
             AnimatedBackground(selection: selection)
                 .ignoresSafeArea()
-
-            TabView(selection: $selection) {
-                HomeView()
-                    .tag(Tab.home)
-                    .tabItem {
-                        Label("Home", systemImage: "person")
-                    }
-
-                StoryView()
-                    .tag(Tab.story)
-                    .tabItem {
-                        Label("Story", systemImage: "book")
-                    }
-
-                FavoritesView()
-                    .tag(Tab.favorites)
-                    .tabItem {
-                        Label("Favorites", systemImage: "star")
-                    }
-
-                FunFactsView()
-                    .tag(Tab.funfacts)
-                    .tabItem {
-                        Label("Fun Facts", systemImage: "hand.thumbsup")
-                    }
-            }
-            .background(Color.clear)
-        }
+        )
     }
 }
 

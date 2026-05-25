@@ -10,6 +10,7 @@ See the License.txt file for this sample’s licensing information.
 */
 
 import SwiftUI
+import UIKit
 
 struct ContentView: View {
     enum Tab: Hashable { case home, story, favorites, funfacts }
@@ -42,9 +43,24 @@ struct ContentView: View {
                 }
         }
         .background(
-            AnimatedBackground(selection: selection)
-                .ignoresSafeArea()
+            ZStack {
+                HostingViewBackgroundClearer()
+                AnimatedBackground(selection: selection)
+                    .ignoresSafeArea()
+            }
         )
+    }
+}
+
+struct HostingViewBackgroundClearer: UIViewControllerRepresentable {
+    func makeUIViewController(context: Context) -> UIViewController {
+        let controller = UIViewController()
+        controller.view.backgroundColor = .clear
+        return controller
+    }
+
+    func updateUIViewController(_ uiViewController: UIViewController, context: Context) {
+        uiViewController.view.backgroundColor = .clear
     }
 }
 

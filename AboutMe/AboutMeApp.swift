@@ -8,3 +8,6 @@ struct AboutMeApp: App {
         }
     }
 }
+#Preview {
+    ContentView()
+}

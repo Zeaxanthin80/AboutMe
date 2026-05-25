@@ -20,7 +20,7 @@ struct FavoritesView: View {
     @State private var texts: [FloatingText] = []
 
     let timer = Timer.publish(
-        every: 0.25,
+        every: 0.15,
         on: .main,
         in: .common
     ).autoconnect()
@@ -29,7 +29,7 @@ struct FavoritesView: View {
         "Hello World!",
         "MDC",
         "✨",
-        "🚀",
+        //"🚀",
         //"Code"
     ]
 

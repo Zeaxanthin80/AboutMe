@@ -1,14 +1,3 @@
-//
-//  HomeView.swift
-//  AboutMe
-//
-//  Created by user on 5/24/26.
-//
-
-/*
-See the License.txt file for this sample’s licensing information.
-*/
-
 import SwiftUI
 
 struct HomeView: View {
@@ -25,7 +14,7 @@ struct HomeView: View {
             VStack {
                 
                 Text(information.title)
-                    .font(.system(size: 72,))
+                    .font(.system(size: 72))
                     .padding()
                     .overlay(
                         LinearGradient(

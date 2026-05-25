@@ -17,11 +17,7 @@ struct FunFactsView: View {
     @State private var funFact = ""
     var body: some View {
         ZStack {
-            LinearGradient(
-                colors: [Color(red: 0.11, green: 0.16, blue: 0.24), Color(red: 0.22, green: 0.30, blue: 0.42), Color(red: 0.42, green: 0.32, blue: 0.27)],
-                startPoint: .topLeading,
-                endPoint: .bottomTrailing
-            )
+            Color.clear
                 .ignoresSafeArea()
             
             VStack {

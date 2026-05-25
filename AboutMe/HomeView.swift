@@ -15,11 +15,7 @@ struct HomeView: View {
     
     var body: some View {
         ZStack {
-            LinearGradient(
-                colors: [Color("LightR"), Color(red: 0.42, green: 0.32, blue: 0.27), Color("DarkR")],
-                startPoint: .topLeading,
-                endPoint: .bottomTrailing
-            )
+            Color.clear
                 .ignoresSafeArea()
             
             VStack {

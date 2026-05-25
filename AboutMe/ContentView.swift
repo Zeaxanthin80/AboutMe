@@ -45,6 +45,7 @@ struct ContentView: View {
                         Label("Fun Facts", systemImage: "hand.thumbsup")
                     }
             }
+            .background(Color.clear)
         }
     }
 }
@@ -101,8 +102,16 @@ struct AnimatedBackground: View {
         }
     }
 
-    @State private var currentColors: [Color] = []
-    @State private var previousColors: [Color] = []
+    @State private var currentColors: [Color] = [
+        Color("LightR"),
+        Color(red: 0.42, green: 0.32, blue: 0.27),
+        Color("DarkR")
+    ]
+    @State private var previousColors: [Color] = [
+        Color("LightR"),
+        Color(red: 0.42, green: 0.32, blue: 0.27),
+        Color("DarkR")
+    ]
     @State private var phase: Double = 1.0
 
     @State private var topOffset: CGSize = CGSize(width: 140, height: -240)

@@ -23,4 +23,3 @@ struct AboutMeApp: App {
     ContentView()
 }
 
-// Add a gentle, continuous parallax drift to the circles while idle for an extra premium feel. Aditionally, whe I ran the app, the background is color white on all the tab views. Can you fix this?

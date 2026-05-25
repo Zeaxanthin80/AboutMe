@@ -17,50 +17,34 @@ struct ContentView: View {
     @State private var selection: Tab = .home
 
     var body: some View {
-        TabView(selection: $selection) {
-            HomeView()
-                .tag(Tab.home)
-                .tabItem {
-                    Label("Home", systemImage: "person")
-                }
+        ZStack {
+            AnimatedBackground(selection: selection)
+                .ignoresSafeArea()
 
-            StoryView()
-                .tag(Tab.story)
-                .tabItem {
-                    Label("Story", systemImage: "book")
-                }
+            TabView(selection: $selection) {
+                // To keep the background fully visible across iOS 16/17, we hide the opaque
+                // materials on the tab bar and ensure the ZStack rendering strategy is used.
+                HomeView()
+                    .tag(Tab.home)
+                    .tabItem { Label("Home", systemImage: "person") }
+                    .toolbarBackground(.hidden, for: .tabBar)
 
-            FavoritesView()
-                .tag(Tab.favorites)
-                .tabItem {
-                    Label("Favorites", systemImage: "star")
-                }
+                StoryView()
+                    .tag(Tab.story)
+                    .tabItem { Label("Story", systemImage: "book") }
+                    .toolbarBackground(.hidden, for: .tabBar)
 
-            FunFactsView()
-                .tag(Tab.funfacts)
-                .tabItem {
-                    Label("Fun Facts", systemImage: "hand.thumbsup")
-                }
-        }
-        .background(
-            ZStack {
-                HostingViewBackgroundClearer()
-                AnimatedBackground(selection: selection)
-                    .ignoresSafeArea()
+                FavoritesView()
+                    .tag(Tab.favorites)
+                    .tabItem { Label("Favorites", systemImage: "star") }
+                    .toolbarBackground(.hidden, for: .tabBar)
+
+                FunFactsView()
+                    .tag(Tab.funfacts)
+                    .tabItem { Label("Fun Facts", systemImage: "hand.thumbsup") }
+                    .toolbarBackground(.hidden, for: .tabBar)
             }
-        )
-    }
-}
-
-struct HostingViewBackgroundClearer: UIViewControllerRepresentable {
-    func makeUIViewController(context: Context) -> UIViewController {
-        let controller = UIViewController()
-        controller.view.backgroundColor = .clear
-        return controller
-    }
-
-    func updateUIViewController(_ uiViewController: UIViewController, context: Context) {
-        uiViewController.view.backgroundColor = .clear
+        }
     }
 }
 

@@ -4,7 +4,11 @@ struct StoryView: View {
     var body: some View {
         ZStack {
             LinearGradient(
-                colors: [Color("LightR"), Color(red: 0.42, green: 0.32, blue: 0.27), Color("DarkR")],
+                colors: [
+                    Color(red: 0.42, green: 0.32, blue: 0.27),
+                    Color("DarkR"),
+                    Color(red: 0.42, green: 0.32, blue: 0.27)
+                    ],
                 startPoint: .topLeading,
                 endPoint: .bottomTrailing
             )

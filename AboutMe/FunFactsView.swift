@@ -7,7 +7,10 @@ struct FunFactsView: View {
     var body: some View {
         ZStack {
             LinearGradient(
-                colors: [Color(red: 0.11, green: 0.16, blue: 0.24), Color(red: 0.22, green: 0.30, blue: 0.42), Color(red: 0.42, green: 0.32, blue: 0.27)],
+                colors: [
+                    Color(red: 0.11, green: 0.16, blue: 0.24),
+                    Color(red: 0.22, green: 0.30, blue: 0.42),
+                    Color(red: 0.42, green: 0.32, blue: 0.27)],
                 startPoint: .topLeading,
                 endPoint: .bottomTrailing
             )
@@ -20,13 +23,17 @@ struct FunFactsView: View {
                     //.fontWeight(.bold)
                     .foregroundColor(.white)
                     .shadow(color: .black.opacity(0.8), radius: 4, x: 0, y: 8)
-            
+       
                 
                 Text(funFact)
                     .padding()
                     .font(.title)
+                    .multilineTextAlignment(.center)
                     .foregroundColor(.white)
                     .frame(minHeight: 400)
+                    .shadow(color: .black.opacity(0.6), radius: 4, y: 6)
+                
+          
                 
                 Button("Show Random Fact") {
                     funFact = information.funFacts.randomElement()!

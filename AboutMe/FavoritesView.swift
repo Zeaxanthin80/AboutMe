@@ -20,7 +20,7 @@ struct FavoritesView: View {
     @State private var texts: [FloatingText] = []
 
     let timer = Timer.publish(
-        every: 0.15,
+        every: 0.1,
         on: .main,
         in: .common
     ).autoconnect()
@@ -38,7 +38,9 @@ struct FavoritesView: View {
         .blue,
         .red,
         .yellow,
-        .cyan,
+        .green,
+        .orange,
+        .purple,
         .mint
     ]
 
@@ -49,7 +51,10 @@ struct FavoritesView: View {
             ZStack {
 
                 LinearGradient(
-                colors: [Color(red: 0.11, green: 0.16, blue: 0.24), Color(red: 0.22, green: 0.30, blue: 0.42), Color(red: 0.42, green: 0.32, blue: 0.27)],
+                colors: [
+                    Color(red: 0.11, green: 0.16, blue: 0.24),
+                    Color(red: 0.22, green: 0.30, blue: 0.42),
+                    Color(red: 0.42, green: 0.32, blue: 0.27)],
                 startPoint: .topLeading,
                 endPoint: .bottomTrailing
             )
@@ -73,6 +78,7 @@ struct FavoritesView: View {
 
                         .position(x: text.x, y: text.y)
                 }
+                .shadow(color: .black.opacity(0.5), radius: 4, x: 0, y: 6)
             }
 
             .onReceive(timer) { _ in

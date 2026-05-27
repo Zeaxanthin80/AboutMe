@@ -19,7 +19,7 @@ struct StoryView: View {
                     .font(.system(size: 96, weight: .bold))
                     .font(.largeTitle)
                     .fontWeight(.bold)
-                    .padding()
+                    .padding(2)
 //                    .shadow(color: .white, radius: 64, x: 0, y: 0)
                     .shadow(color: .black, radius: 12, x: 0, y: 12)
                     
@@ -28,13 +28,14 @@ struct StoryView: View {
                     Text(information.story)
                         .font(.body)
                         .padding(32)
+                        .padding(.top, 36)
                         .foregroundColor(.white)
                 }
                 .mask(
                     LinearGradient(
                         gradient: Gradient(stops: [
                             .init(color: .clear, location: 0.0),
-                            .init(color: .black, location: 0.06),
+                            .init(color: .black, location: 0.1),
                             .init(color: .black, location: 0.5),
                             .init(color: .clear, location: 1.0)
                         ]),
